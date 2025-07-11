@@ -78,6 +78,27 @@ export default tseslint.config([
 npm install git+https://github.com/sangwookp9591/react-virtual-list.git
 ```
 
+## 설치 시 권한 에러(EACCES) 발생 시 해결 방법
+
+npm install 중 아래와 같은 에러가 발생할 수 있습니다:
+
+```
+npm error code EACCES
+npm error Your cache folder contains root-owned files, ...
+```
+
+이 경우, 아래 명령어를 터미널에 입력하여 npm 캐시 폴더의 소유권을 현재 사용자로 변경해 주세요:
+
+```bash
+sudo chown -R $(id -u):$(id -g) ~/.npm
+```
+
+-   위 명령어는 **npm 캐시 폴더(~/.npm)의 소유자를 내 계정으로 바꿔주는 것**입니다.
+-   관리자 권한(sudo)이 필요하며, 비밀번호를 입력하라는 메시지가 나오면 입력해 주세요.
+-   이 작업 후 다시 `npm install`을 실행하면 권한 에러가 해결됩니다.
+
+> ⚠️ 이 명령어는 npm 사용 중 "권한 없음(EACCES)" 에러가 발생할 때만 사용하면 됩니다.
+
 ## 사용 방법
 
 아래는 VirtualList 컴포넌트의 기본 사용 예시입니다.
