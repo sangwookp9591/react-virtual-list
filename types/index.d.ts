@@ -8,6 +8,6 @@ declare module 'virtual-list' {
         renderItem: (item: T, index: number) => React.ReactNode;
     }
 
-    // JSX.Element 대신 React.JSX.Element 사용
-    export function VirtualList<T>(props: VirtualListProps<T>): React.JSX.Element;
+    // React.ReactElement 사용 (JSX.Element 대신)
+    export function VirtualList<T>(props: VirtualListProps<T>): React.ReactElement;
 }
